@@ -6,13 +6,13 @@ const chatWrapper = document.querySelector('.chat-wrapper');
 const chatHomepage = document.querySelector('.homepage');
 const errorMessage = document.querySelector('.error-message');
 const chatInput = document.querySelector('.chat-input').value;
-const usernameInput = document.querySelector('.username-input').value;
+const usernameInput = document.querySelector('.username-input');
 
 // Getting started
 startBtn.addEventListener('click', () => {
     console.log('clicked');
     console.log(usernameInput);
-    if (usernameInput.length < 0) {
+    if (usernameInput.innerHTML === '') {
         errorMessage.style.display = 'block';
     } else {
         username.innerHTML = usernameInput.trim();
