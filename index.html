@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="phone-wrapper">
+                <div class="notch"></div>
+                <div class="chat-body">
+                    <div class="homepage">
+                        <h1>I4GZuri <span class="chat-text">Chat</span></h1>
+                        <p class="error-message">username cannot be blank</p>
+                        <input class="username-input" type="text" name="username" placeholder="Please enter a username">
+                        <button class="start-btn">Start chatting</button>
+                    </div>
+
+                    <div class="chat-wrapper">
+                        <div class="chat-header">
+                            <div class="avatar">
+                                <p class="initials">INT</p>
+                            </div>
+                            <p class="username">username</p>
+                            <button class="logout-btn">Logout</button>
+                        </div>
+                        <div class="chat-box">
+                            <p class="message-text">Hi</p>
+                        </div>
+                        <div class="type-input">
+                            <span class="typing"><i>typing...</i></span>
+                            <input class="chat-input" type="text" placeholder="Type message here">
+                            <button class="send-btn"><img class="icon" src="send.svg" alt="plane icon"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
