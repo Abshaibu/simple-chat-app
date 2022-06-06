@@ -21,27 +21,29 @@
                 <div class="chat-body">
                     <div class="homepage">
                         <h1>I4GZuri <span class="chat-text">Chat</span></h1>
-                        <p class="error-message">username cannot be blank</p>
-                        <input class="username-input" type="text" name="username" placeholder="Please enter a username">
-                        <button class="start-btn">Start chatting</button>
+                        <form class="username-form" action="">
+                            <input class="username-input" type="text" name="username"
+                                placeholder="Please enter a username">
+                            <p class="error-message">username cannot be blank</p>
+                            <input class="start-btn" type="submit" value="Start chatting">
+                        </form>
                     </div>
 
                     <div class="chat-wrapper">
                         <div class="chat-header">
                             <div class="avatar">
-                                <p class="initials">INT</p>
+                                <p class="initials"></p>
                             </div>
-                            <p class="username">username</p>
+                            <p class="username"></p>
                             <button class="logout-btn">Logout</button>
                         </div>
                         <div class="chat-box">
-                            <p class="message-text">Hi</p>
                         </div>
-                        <div class="type-input">
+                        <form class="text-form">
                             <span class="typing"><i>typing...</i></span>
                             <input class="chat-input" type="text" placeholder="Type message here">
                             <button class="send-btn"><img class="icon" src="send.svg" alt="plane icon"></button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
