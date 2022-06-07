@@ -25,12 +25,12 @@ textForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const p = document.createElement('p');
     // setting current user typing styling
-    if (chatInput.getAttribute('placeholder') === 'User1 type here') {
+    if (chatInput.getAttribute('placeholder') === 'other user type here') {
         p.classList.add('message-text');
         chatInput.setAttribute('placeholder', `${username.innerHTML} type here`);
     } else {
         p.classList.add('second-user');
-        chatInput.setAttribute('placeholder', 'User1 type here');
+        chatInput.setAttribute('placeholder', 'other user type here');
     }
     p.innerHTML = chatInput.value;
     chatBox.appendChild(p);
