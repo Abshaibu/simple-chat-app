@@ -52,6 +52,7 @@ usernameForm.addEventListener('submit', (e) => {
         chatHomepage.style.display = 'none';
         chatWrapper.style.display = 'block';
         initials.innerHTML = username.innerHTML[0].toUpperCase();
+        chatInput.setAttribute('placeholder', `${username.innerHTML} type here`);
     }
 });
 
