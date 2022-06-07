@@ -6,19 +6,37 @@ const initials = document.querySelector('.initials');
 const chatWrapper = document.querySelector('.chat-wrapper');
 const chatBox = document.querySelector('.chat-box');
 const chatHomepage = document.querySelector('.homepage');
+const typingIndicator = document.querySelector('.typing');
 const errorMessage = document.querySelector('.error-message');
 const chatInput = document.querySelector('.chat-input');
 const usernameInput = document.querySelector('.username-input');
+
+// Displaying typing indicator on chat based on input value
+chatInput.addEventListener('keyup', () => {
+    if (chatInput.value != '') {
+        typingIndicator.style.display = 'block';
+    } else {
+        typingIndicator.style.display = 'none';
+    }
+})
 
 // Sending messages
 textForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const p = document.createElement('p');
-    p.classList.add('message-text');
+    // setting current user typing styling
+    if (chatInput.getAttribute('placeholder') === 'User1 type here') {
+        p.classList.add('message-text');
+        chatInput.setAttribute('placeholder', `${username.innerHTML} type here`);
+    } else {
+        p.classList.add('second-user');
+        chatInput.setAttribute('placeholder', 'User1 type here');
+    }
     p.innerHTML = chatInput.value;
     chatBox.appendChild(p);
     chatInput.value = '';
     localStorage.setItem('chat-box', chatBox.innerHTML);
+    localStorage.setItem('chat-input', chatInput.getAttribute('placeholder'));
     localStorage.setItem('chat-init', initials.innerHTML);
     localStorage.setItem('chat-username', username.innerHTML);
 })
@@ -41,6 +59,7 @@ usernameForm.addEventListener('submit', (e) => {
 logoutBtn.addEventListener('click', () => {
     localStorage.removeItem('chat-box');
     localStorage.removeItem('chat-init');
+    localStorage.removeItem('chat-input');
     localStorage.removeItem('chat-username');
     usernameInput.value = '';
     chatBox.innerHTML = '';
@@ -55,6 +74,8 @@ if (localStorage.getItem('chat-box')) {
     initials.innerHTML = localStorage.getItem('chat-init');
     username.innerHTML = localStorage.getItem('chat-username');
     chatBox.innerHTML = localStorage.getItem('chat-box');
+    chatInput.setAttribute('placeholder', localStorage.getItem('chat-input'));
+
 } else {
     chatHomepage.style.display = 'block';
     chatWrapper.style.display = 'none';

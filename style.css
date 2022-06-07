@@ -115,6 +115,7 @@ input:not([type="submit"]):focus {
     justify-content: space-between;
     margin-top: 2rem;
     align-items: center;
+    position: relative;
     padding-bottom: 1rem;
     border-bottom: 1px solid #c23bc2;
 }
@@ -171,9 +172,20 @@ p {
 .message-text {
     background: #c23bc2;
     color: #fff;
+    border-radius: 10px 10px 0 10px;
+}
+
+.second-user {
+    background: #beebe5;
+    color: #000;
+    border-radius: 10px 10px 10px 0;
+    text-align: left;
+}
+
+.message-text,
+.second-user {
     padding: .5rem;
     margin-top: 1.2rem;
-    border-radius: 10px 10px 0 10px;
     font-weight: 400;
 }
 
@@ -189,9 +201,11 @@ input.chat-input {
 
 .typing {
     color: #c23bc2;
-    display: block;
     text-align: left;
     display: none;
+    position: absolute;
+    bottom: 3px;
+    left: 7rem;
 }
 
 .chat-input:focus .typing {
