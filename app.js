@@ -15,11 +15,12 @@ textForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const p = document.createElement('p');
     p.classList.add('message-text');
-    console.log(chatInput.value);
     p.innerHTML = chatInput.value;
-    console.log(p);
     chatBox.appendChild(p);
     chatInput.value = '';
+    localStorage.setItem('chat-box', chatBox.innerHTML);
+    localStorage.setItem('chat-init', initials.innerHTML);
+    localStorage.setItem('chat-username', username.innerHTML);
 })
 
 // Getting started
@@ -33,13 +34,28 @@ usernameForm.addEventListener('submit', (e) => {
         chatHomepage.style.display = 'none';
         chatWrapper.style.display = 'block';
         initials.innerHTML = username.innerHTML[0].toUpperCase();
-        usernameInput.value = '';
     }
 });
 
 // Logging out
 logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('chat-box');
+    localStorage.removeItem('chat-init');
+    localStorage.removeItem('chat-username');
+    usernameInput.value = '';
     chatBox.innerHTML = '';
-    chatWrapper.style.display = 'none';
     chatHomepage.style.display = 'block';
+    chatWrapper.style.display = 'none';
 })
+
+// Setting Local Storage
+if (localStorage.getItem('chat-box')) {
+    chatHomepage.style.display = 'none';
+    chatWrapper.style.display = 'block';
+    initials.innerHTML = localStorage.getItem('chat-init');
+    username.innerHTML = localStorage.getItem('chat-username');
+    chatBox.innerHTML = localStorage.getItem('chat-box');
+} else {
+    chatHomepage.style.display = 'block';
+    chatWrapper.style.display = 'none';
+}

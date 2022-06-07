@@ -87,7 +87,7 @@ button {
 
 form {
     position: relative;
-    padding: 2rem;
+    padding: 0 2rem;
 }
 
 input:not([type="submit"]) {
@@ -157,7 +157,15 @@ p {
 
 .chat-box {
     text-align: right;
-    height: 347px;
+    height: 385px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.chat-box::-webkit-scrollbar {
+    display: none;
 }
 
 .message-text {
@@ -192,7 +200,7 @@ input.chat-input {
 
 .send-btn {
     position: absolute;
-    top: 56px;
+    top: 24px;
     right: 4px;
     cursor: pointer;
 }
